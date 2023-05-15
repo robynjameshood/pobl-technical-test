@@ -1,0 +1,20 @@
+ul {
+    list-style: none;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-width: 100% !important;
+}
+
+.nav > a {
+    color: white;
+    text-decoration: none;
+}

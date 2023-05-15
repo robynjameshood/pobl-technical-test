@@ -1,0 +1,23 @@
+.requests-grid {
+    min-width: 100%;
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 3px solid #643B9F;
+    text-align: left;
+    row-gap: 10px;
+    background-color: white;
+}
+
+.row-data {
+    background-color: lightblue;
+}
+
+#filter {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25px;
+    justify-content: left;
+}
