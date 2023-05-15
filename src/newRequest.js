@@ -30,6 +30,8 @@ const CreateNewRequest = () => {
             localStorage.setItem('requests', [JSON.stringify(requests)]); // store all in local storage.
         }
 
+        alert("Request submitted");
+
     }
 
     return (
@@ -47,7 +49,7 @@ const CreateNewRequest = () => {
                     <select id="businessarea" name="businessarea">
                         <option value="engineer">Engineer</option>
                         <option value="support">Support</option>
-                        <option value="customerservice">Customer Service</option>
+                        <option value="customer-service">Customer Service</option>
                     </select>
                     <button type="submit" id='submitButton' >Submit</button>
                 </form>

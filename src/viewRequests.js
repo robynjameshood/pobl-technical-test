@@ -3,7 +3,7 @@ import './viewRequests.css';
 
 const ViewRequests = () => {
     const [requests, setRequests] = useState([]);
-    const [businessArea, setBusinessArea] = useState(["Show All", "support", "engineer", "customer service"]);
+    const [businessArea, setBusinessArea] = useState(["Show All", "support", "engineer", "customer-service"]);
 
     const loadRequests = () => {
         setRequests(JSON.parse(localStorage.getItem('requests')));
