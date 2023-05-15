@@ -48,9 +48,9 @@ const ViewRequests = () => {
     return (
         <div className="view-requests-container">
             My Requests
-            <div id='filter'>Filter: 
+            <div id='filter'>Filter:
                 {businessArea ? businessArea.map((item) => {
-                    return <button onClick={()=>handleFilter(item)}>{item}</button>
+                    return <button onClick={() => handleFilter(item)}>{item}</button>
                 }) : ""}
             </div>
             <div className="requests-grid">
@@ -66,19 +66,19 @@ const ViewRequests = () => {
                 {requests ? requests.map((item, key) => {
                     return (
                         <>
-                            <div className='row-data' key={key}>{item.firstname}</div>
-                            <div className='row-data' key={key}>{item.surname}</div>
-                            <div className='row-data' key={key}>{item.jobtitle}</div>
-                            <div className='row-data' key={key}>{item.linemanager}</div>
-                            <div className='row-data' key={key}>{item.startdate}</div>
-                            <div className='row-data' key={key}>{item.businessarea}</div>
-                            <div className='row-data' key={key}>{item.status}</div>
+                            <div key={key} className='row-data'>{item.firstname}</div>
+                            <div className='row-data' >{item.surname}</div>
+                            <div className='row-data' >{item.jobtitle}</div>
+                            <div className='row-data' >{item.linemanager}</div>
+                            <div className='row-data' >{item.startdate}</div>
+                            <div className='row-data' >{item.businessarea}</div>
+                            <div className='row-data' >{item.status}</div>
                             <button onClick={() => handleCompleted(item, key)} className='mark-complete'>Mark As Complete</button>
                             <button onClick={() => handleDelete(item, key)} className='delete-request'>Delete</button>
                         </>
                     )
                 }) : ""}
-                
+
             </div>
         </div>
     )
