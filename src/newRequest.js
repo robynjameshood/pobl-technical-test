@@ -3,12 +3,13 @@ import './newRequest.css';
 import ViewRequests from './viewRequests';
 
 const CreateNewRequest = () => {
-    const requests = [];
+    let requests = [];
+    let currentRequests = [];
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const currentRequests = JSON.parse(localStorage.getItem('requests'));
+        currentRequests = JSON.parse([localStorage.getItem('requests')]);
 
         const formData = new FormData(e.target);
 
@@ -23,7 +24,7 @@ const CreateNewRequest = () => {
         });
 
 
-        if (currentRequests != null) {
+        if (currentRequests.length) {
             const allRequests = [...requests, ...currentRequests]; // merge previous requests and new requests
             localStorage.setItem('requests', [JSON.stringify(allRequests)]); // store all in local storage.
         } else {
@@ -37,7 +38,7 @@ const CreateNewRequest = () => {
     return (
         <div className='form-container'>
             <>
-            <div className='heading'>Create New Request</div>
+                <div className='heading'>Create New Request</div>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <p id='heading'>Please use the fields below to enter the required information</p>
                     <input type='text' id="fname" name='firstname' placeholder='First Name' required></input>
