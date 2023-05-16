@@ -28,7 +28,7 @@ const ViewRequests = () => {
     }
 
     const handleFilter = (filter) => {
-        if (filter !== "Show All") {
+        if (filter !== "Show All" && requests) {
             const filtered = requests.filter(item => item.businessarea === filter)
             setRequests(filtered);
         } else {
