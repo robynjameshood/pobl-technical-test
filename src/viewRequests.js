@@ -10,9 +10,9 @@ const ViewRequests = () => {
     }
 
     const handleDelete = (item, itemIndex) => {
-        const deleted = requests.filter((record, index) => index === itemIndex)
+        const deleted = requests.filter((record, index) => index !== itemIndex)
         setRequests(deleted);
-        localStorage.removeItem('requests', [JSON.stringify(deleted)]);
+        localStorage.setItem('requests', [JSON.stringify(deleted)]);
     }
 
     const handleCompleted = (item, outerIndex) => {
