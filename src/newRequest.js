@@ -9,7 +9,10 @@ const CreateNewRequest = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        currentRequests = JSON.parse([localStorage.getItem('requests')]);
+        if (localStorage.length) {
+            currentRequests = JSON.parse([localStorage.getItem('requests')]);
+        }
+        
 
         const formData = new FormData(e.target);
 
