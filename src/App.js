@@ -17,7 +17,7 @@ function App() {
       </div>
       <div className='main-content'>
       <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/create-new-request' element={<CreateNewRequest />} />
           <Route path='/view-my-requests' element={<ViewRequests />} />
         </Routes>
