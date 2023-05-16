@@ -28,16 +28,12 @@ const ViewRequests = () => {
     }
 
     const handleFilter = (filter) => {
-        console.log(filter)
         if (filter !== "Show All") {
             const filtered = requests.filter(item => item.businessarea === filter)
             setRequests(filtered);
         } else {
             loadRequests();
         }
-        //  else {
-        //     loadRequests();
-        // }
     }
 
     useEffect(() => {
