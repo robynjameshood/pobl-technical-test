@@ -32,7 +32,6 @@ const ViewRequests = () => {
     }
 
     const handleFilter = (filter) => {
-        console.log(filter)
         if (requests) {
             const filtered = requests.filter(item => item.businessarea === filter)
             setRequests(filtered);
@@ -52,9 +51,7 @@ const ViewRequests = () => {
     }
 
     const handleHighlight = (clicked) => {
-        console.log(clicked)
         let updateHighlight = businessArea.map((item) => {
-            console.log(item);
             if (clicked.area === item.area) {
                 return {...item, active: true};
             } else {
@@ -65,8 +62,6 @@ const ViewRequests = () => {
         setBusinessArea(updateHighlight);
         
     }
-
-    console.log(businessArea)
 
     useEffect(() => {
         loadRequests();
