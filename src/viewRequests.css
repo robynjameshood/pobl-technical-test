@@ -18,6 +18,15 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 25px;
+    height: 27px;
     justify-content: left;
+    align-items: center;
+}
+
+.remove-filter::after {
+    content: "Remove Filter";
+}
+
+.show-all::before {
+    content: "Show All";
 }

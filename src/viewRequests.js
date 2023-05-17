@@ -3,7 +3,8 @@ import './viewRequests.css';
 
 const ViewRequests = () => {
     const [requests, setRequests] = useState([]);
-    const [businessArea, setBusinessArea] = useState(["Show All", "support", "engineer", "customer-service"]);
+    const [businessArea, setBusinessArea] = useState(["support", "engineer", "customer-service"]);
+    const [activeFilter, setActiveFilter] = useState(false);
 
     const loadRequests = () => {
         setRequests(JSON.parse(localStorage.getItem('requests')));
@@ -28,24 +29,30 @@ const ViewRequests = () => {
     }
 
     const handleFilter = (filter) => {
-        if (filter !== "Show All" && requests) {
+        if (requests) {
             const filtered = requests.filter(item => item.businessarea === filter)
             setRequests(filtered);
+            setActiveFilter(true);
         } else {
             loadRequests();
         }
     }
 
+    const handleRemoveFilter = () => {
+        setActiveFilter(false);
+        loadRequests();
+    }
+
     useEffect(() => {
         loadRequests();
-        // localStorage.clear();
     }, [])
 
     return (
         <div className="view-requests-container">
             My Requests
             <div id='filter'>Filter:
-                {businessArea ? businessArea.map((item) => {
+            <button className={activeFilter ? "remove-filter" : "show-all"} onClick={() => handleRemoveFilter()}></button>
+                {businessArea ? businessArea.map((item, index) => {
                     return <button onClick={() => handleFilter(item)}>{item}</button>
                 }) : ""}
             </div>
