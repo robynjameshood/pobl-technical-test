@@ -3,11 +3,11 @@ import './viewRequests.css';
 
 const ViewRequests = () => {
     const [requests, setRequests] = useState([]);
+    const [activeFilter, setActiveFilter] = useState(false);
     const [businessArea, setBusinessArea] = useState([
         { area: "support", active: false },
         { area: "engineer", active: false },
         { area: "customer-service", active: false }]);
-    const [activeFilter, setActiveFilter] = useState(false);
 
     const loadRequests = () => {
         setRequests(JSON.parse(localStorage.getItem('requests')));
