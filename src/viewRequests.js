@@ -3,7 +3,10 @@ import './viewRequests.css';
 
 const ViewRequests = () => {
     const [requests, setRequests] = useState([]);
-    const [businessArea, setBusinessArea] = useState(["support", "engineer", "customer-service"]);
+    const [businessArea, setBusinessArea] = useState([
+        { area: "support", active: false },
+        { area: "engineer", active: false },
+        { area: "customer-service", active: false }]);
     const [activeFilter, setActiveFilter] = useState(false);
 
     const loadRequests = () => {
@@ -29,6 +32,7 @@ const ViewRequests = () => {
     }
 
     const handleFilter = (filter) => {
+        console.log(filter)
         if (requests) {
             const filtered = requests.filter(item => item.businessarea === filter)
             setRequests(filtered);
@@ -41,7 +45,28 @@ const ViewRequests = () => {
     const handleRemoveFilter = () => {
         setActiveFilter(false);
         loadRequests();
+        let removeHighlight = businessArea.map((item) => {
+            return {...item, active: false};
+        });
+        setBusinessArea(removeHighlight);
     }
+
+    const handleHighlight = (clicked) => {
+        console.log(clicked)
+        let updateHighlight = businessArea.map((item) => {
+            console.log(item);
+            if (clicked.area === item.area) {
+                return {...item, active: true};
+            } else {
+                return item;
+            }
+        });
+
+        setBusinessArea(updateHighlight);
+        
+    }
+
+    console.log(businessArea)
 
     useEffect(() => {
         loadRequests();
@@ -51,9 +76,12 @@ const ViewRequests = () => {
         <div className="view-requests-container">
             My Requests
             <div id='filter'>Filter:
-            <button className={activeFilter ? "remove-filter" : "show-all"} onClick={() => handleRemoveFilter()}></button>
+                <button className={activeFilter ? "remove-filter" : "show-all"} onClick={() => handleRemoveFilter()}></button>
                 {businessArea ? businessArea.map((item, index) => {
-                    return <button onClick={() => handleFilter(item)}>{item}</button>
+                    return <button className={item.active ? "highlight" : "no-highlight"} onClick={() => {
+                        handleHighlight(item)
+                        handleFilter(item.area)
+                    }}>{item.area}</button>
                 }) : ""}
             </div>
             <div className="requests-grid">

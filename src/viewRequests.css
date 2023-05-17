@@ -30,3 +30,12 @@
 .show-all::before {
     content: "Show All";
 }
+
+.highlight {
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+.no-highlight {
+    border: none;
+}
