@@ -28,14 +28,14 @@
 }
 
 .show-all::before {
-    content: "Show All";
+    content: "No Filter Selected";
 }
 
 .highlight {
     background-color: orange;
-    border: 1px solid orange;
+    border: 2px solid orange;
 }
 
 .no-highlight {
-    border: none;
+    
 }
